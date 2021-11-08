@@ -29,6 +29,7 @@
     "dotenv": "^10.0.0",
     "ffmpeg-static": "^4.4.0",
     "fs": "^0.0.1-security",
+    "node": "^17.0.1",
     "ytdl-core": "^4.5.0"
   },
   "devDependencies": {
