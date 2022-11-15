@@ -1,11 +1,12 @@
 const Discord = require("discord.js");
-module.exports.run = async(client, message, args) =>{        
+module.exports.run = async(client, interaction) =>{        
      
-    await message.channel.send(`<@${message.author.id}> doit le petit dej!`)
+    await interaction.reply(`<@${interaction.user.id}> doit le petit dej!`)
 
 };
 module.exports.help = {
     name:"dej",
-    cmd:"&dej",
-    help:"Dit qui doit ramener le petit dej"
+    cmd:"/dej",
+    help:"Dit qui doit ramener le petit dej",
+    slash:true
 }

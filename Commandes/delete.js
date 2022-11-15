@@ -1,16 +1,13 @@
 const Discord = require("discord.js");
-module.exports.run = async(client, message, args) =>{        
-    if(!message.member.permissions.has('ADMINISTRATOR') && message.author.id != 273756946308530176) return;
-    if(!message.reference) return;
-    message.channel.messages.fetch(message.reference.messageId)
-    .then(message => {
-        if(message.author.id != client.user.id) return;
-        message.delete();
-    })
-    .catch(console.error);
+const { isAdmin } = require("../utils/roles");
+module.exports.run = async(client, interaction) =>{        
+    if(!isAdmin(interaction.member) && message.author.id != 273756946308530176) return interaction.reply({content:"Tu peux pas CHEH",ephemeral:true});
+    interaction.targetMessage.delete();
+    interaction.reply({content:"Done",ephemeral:true})
 };
 module.exports.help = {
     name:"delete",
-    cmd:"&delete",
-    help:"[Admin] Supprime un message envoyé"
+    cmd:"/delete",
+    help:"[Admin] Supprime un message envoyé",
+    message:true
 }
